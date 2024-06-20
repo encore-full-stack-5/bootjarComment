@@ -6,6 +6,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
 
@@ -13,6 +14,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Getter
+@Table("COMMENTS")
+
 public class Comment {
     @Id
     @Column(value = "comment_id")
@@ -34,8 +37,5 @@ public class Comment {
     @LastModifiedDate
     @Column(value = "comment_id")
     private LocalDateTime updatedAt;
-
-
-
 
 }

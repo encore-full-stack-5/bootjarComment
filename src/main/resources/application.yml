@@ -8,9 +8,9 @@ spring:
     password: 1234
 
   liquibase:
-    enabled: false
+    enabled: true
   flyway:
-    enabled: false
+    enabled: true
 
 logging:
   level:
