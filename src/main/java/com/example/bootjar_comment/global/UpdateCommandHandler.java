@@ -12,8 +12,8 @@ import reactor.core.publisher.Mono;
 public class UpdateCommandHandler {
     private final CommentCommandService commentCommandService;
 
-    public Mono<Void> updateHandle(UpdateCommentDto updateCommentDto){
-        return commentCommandService.updateComment(updateCommentDto);
+    public Mono<Void> updateHandle(Long commentId, String content){
+        return commentCommandService.updateComment(commentId, content);
     }
 
 }

@@ -1,5 +1,7 @@
 package com.example.bootjar_comment.global;
 
+import com.example.bootjar_comment.command.CommentCommand;
+import com.example.bootjar_comment.domain.Comment;
 import com.example.bootjar_comment.dto.CreateCommentDto;
 import com.example.bootjar_comment.service.CommentCommandService;
 import lombok.RequiredArgsConstructor;
@@ -11,8 +13,8 @@ import reactor.core.publisher.Mono;
 public class CreateCommandHandler {
     private final CommentCommandService commentCommandService;
 
-    public Mono<Void> createHandle(CreateCommentDto createCommentDto){
-        return commentCommandService.createComment(createCommentDto);
+    public Mono<CommentCommand> createHandle(Long todoId, CreateCommentDto commentDto){
+        return commentCommandService.createComment(todoId, commentDto);
     }
 
 }

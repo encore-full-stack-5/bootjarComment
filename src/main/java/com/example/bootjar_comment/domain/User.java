@@ -12,13 +12,13 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table("USERS")
 public class User {
     @Id
-    @Column(value = "user_id")
+    @Column(value = "userId")
     private Long id;
 
-    @Column(value = "user_nickname")
+    @Column(value = "userNickname")
     private String nickname;
 
-    @Column(value = "user_image")
+    @Column(value = "userImage")
     private String image;
 
 }
