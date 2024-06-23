@@ -15,27 +15,26 @@ import java.time.LocalDateTime;
 @Builder
 @Getter
 @Table("COMMENTS")
-
 public class Comment {
     @Id
-    @Column(value = "comment_id")
+    @Column(value = "id")
     private Long id;
 
-    @Column(value = "comment_id")
+    @Column(value = "user_id")
     private Long userId;
 
     @Column(value = "todo_id")
     private Long todoId;
 
-    @Column(value = "comment_text")
-    private Long content;
+    @Column(value = "content")
+    private String content;
 
     @CreatedDate
-    @Column(value = "comment_created_at")
+    @Column(value = "created_at")
     private LocalDateTime createdAt;
 
     @LastModifiedDate
-    @Column(value = "comment_id")
+    @Column(value = "updated_at")
     private LocalDateTime updatedAt;
 
 }

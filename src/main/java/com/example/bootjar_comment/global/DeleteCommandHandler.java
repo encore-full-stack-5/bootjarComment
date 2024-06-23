@@ -11,8 +11,8 @@ import reactor.core.publisher.Mono;
 public class DeleteCommandHandler {
     private final CommentCommandService commentCommandService;
 
-    public Mono<Void> deleteHandle(){
-        return commentCommandService.deleteComment();
+    public Mono<Void> deleteHandle(Long commentId){
+        return commentCommandService.deleteComment(commentId);
     }
 
 }
