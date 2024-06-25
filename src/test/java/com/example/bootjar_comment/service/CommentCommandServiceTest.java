@@ -1,15 +1,16 @@
 package com.example.bootjar_comment.service;
 
 import com.example.bootjar_comment.command.CommentCommand;
+import com.example.bootjar_comment.dto.CommentDto;
 import com.example.bootjar_comment.dto.CreateCommentDto;
 import com.example.bootjar_comment.dto.UpdateCommentDto;
 import com.example.bootjar_comment.repository.CommandRepository;
+import com.example.bootjar_comment.repository.QueryRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.cglib.core.Local;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
@@ -23,19 +24,21 @@ import static org.mockito.Mockito.*;
 class CommentCommandServiceTest {
 
     @InjectMocks
-    private CommentCommandService commentCommandService;
+    private CommentCommandServiceImpl commentCommandService;
     @InjectMocks
-    private CommentQueryService commentQueryService;
+    private CommentQueryServiceImpl commentQueryService;
     @Mock
     CommandRepository commandRepository;
+    @Mock
+    QueryRepository queryRepository;
 
     @Test
     void 댓글_조회 () {
         // given
-        CommentCommand createComment = new CommentCommand(1L, 1L, 1L, "Test comment", LocalDateTime.now(), LocalDateTime.now());
-        when(commandRepository.findByTodoId(1L)).thenReturn(Flux.just(createComment));
-        // when
-        Flux<CommentCommand> commentFlux = commentQueryService.getCommentList(1L);
+        CommentDto commentDto = new CommentDto(1L, 1L, "Test comment", 1L, "별명", "image", LocalDateTime.now(), LocalDateTime.now());
+        when(queryRepository.findByTodoId(1L)).thenReturn(Flux.just(commentDto));
+        // whenll
+        Flux<CommentDto> commentFlux = commentQueryService.getCommentList(1L);
         // then
         StepVerifier.create(commentFlux)
                 .expectNextMatches(comment -> comment.getContent().equals("Test comment"))
