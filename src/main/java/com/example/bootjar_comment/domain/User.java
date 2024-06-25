@@ -20,5 +20,4 @@ public class User {
 
     @Column(value = "userImage")
     private String image;
-
 }

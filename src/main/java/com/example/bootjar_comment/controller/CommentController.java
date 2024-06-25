@@ -2,6 +2,7 @@ package com.example.bootjar_comment.controller;
 
 import com.example.bootjar_comment.command.CommentCommand;
 import com.example.bootjar_comment.domain.Comment;
+import com.example.bootjar_comment.dto.CommentDto;
 import com.example.bootjar_comment.dto.CreateCommentDto;
 import com.example.bootjar_comment.dto.UpdateCommentDto;
 import com.example.bootjar_comment.global.CreateCommandHandler;
@@ -24,7 +25,7 @@ public class CommentController {
     private final DeleteCommandHandler deleteCommandHandler;
 
     @GetMapping("/{todoId}/comments")
-    public Flux<CommentCommand> getComments(
+    public Flux<CommentDto> getComments(
             @PathVariable Long todoId
     ) {
         return queryHandler.getComments(todoId);
