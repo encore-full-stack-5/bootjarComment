@@ -1,6 +1,6 @@
 package com.example.bootjar_comment.dto;
 
-import com.example.bootjar_comment.command.CommentCommand;
+import com.example.bootjar_comment.domain.Comment;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,8 +17,8 @@ public class CreateCommentDto {
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
 
-    public CommentCommand toEntity(Long todoId) {
-        return CommentCommand.builder()
+    public Comment toEntity(Long todoId) {
+        return Comment.builder()
                 .todoId(todoId)
                 .userId(userId)
                 .content(content)

@@ -9,15 +9,15 @@ import org.springframework.data.relational.core.mapping.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table("USERS")
+@Table("users")
 public class User {
     @Id
-    @Column(value = "userId")
+    @Column(value = "id")
     private Long id;
 
-    @Column(value = "userNickname")
+    @Column(value = "nickname")
     private String nickname;
 
-    @Column(value = "userImage")
+    @Column(value = "image")
     private String image;
 }

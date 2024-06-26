@@ -1,6 +1,6 @@
 package com.example.bootjar_comment.service;
 
-import com.example.bootjar_comment.command.CommentCommand;
+import com.example.bootjar_comment.domain.Comment;
 import com.example.bootjar_comment.dto.CreateCommentDto;
 import com.example.bootjar_comment.repository.CommandRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 public class CommentCommandServiceImpl implements CommentCommandService {
     private final CommandRepository commandRepository;
 
-    public Mono<CommentCommand> createComment(Long todoId, CreateCommentDto commentDto) {
-        CommentCommand comment = commentDto.toEntity(todoId);
+    public Mono<Comment> createComment(Long todoId, CreateCommentDto commentDto) {
+        Comment comment = commentDto.toEntity(todoId);
         return commandRepository.save(comment);
     }
 
