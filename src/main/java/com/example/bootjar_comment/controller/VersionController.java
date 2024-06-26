@@ -4,9 +4,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+// @RequestMapping("/todos")
 public class VersionController {
 
-    @GetMapping("/api/version")
+    @GetMapping("/todos/comments/version")
     String version() {
         return "v1.0.0";
     }
