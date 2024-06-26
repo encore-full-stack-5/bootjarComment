@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 public class CreateCommandHandler {
     private final CommentCommandService commentCommandService;
 
-    public Mono<CommentCommand> createHandle(Long todoId, CreateCommentDto commentDto){
+    public Mono<Comment> createHandle(Long todoId, CreateCommentDto commentDto){
         return commentCommandService.createComment(todoId, commentDto);
     }
 

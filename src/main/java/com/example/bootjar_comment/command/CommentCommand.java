@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Builder
 @Getter
 @Setter
-@Table("COMMENTS")
+@Table("comments")
 public class CommentCommand {
     @Id
     @Column(value = "id")
@@ -26,6 +26,12 @@ public class CommentCommand {
 
     @Column(value = "todoId")
     private Long todoId;
+
+    @Column(value = "nickname")
+    private String nickname;
+
+    @Column(value = "image")
+    private String image;
 
     @Column(value = "content")
     private String content;
