@@ -9,6 +9,6 @@ public class VersionController {
 
     @GetMapping("/todos/comments/version")
     public String version() {
-        return "v1.0.0";
+        return "v1.0.1";
     }
 }
