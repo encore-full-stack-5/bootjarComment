@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class VersionController {
 
     @GetMapping("/todos/comments/version")
-    String version() {
+    public String version() {
         return "v1.0.0";
     }
 }
