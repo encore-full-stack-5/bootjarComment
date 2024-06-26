@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: bootjar_comment
+
+  r2dbc:
+    url: r2dbc:mysql://bootjar-comment-mysql-comment:3306/bootjar_comment
+    username: {username}
+    password: {password}
+
+  liquibase:
+    enabled: true
+  flyway:
+    enabled: true
+
+logging:
+  level:
+    org.springframework.r2dbc.core: debug

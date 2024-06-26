@@ -14,27 +14,28 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Getter
-@Table("COMMENTS")
+@Setter
+@Table("comments")
 public class Comment {
     @Id
     @Column(value = "id")
     private Long id;
 
-    @Column(value = "user_id")
+    @Column(value = "userId")
     private Long userId;
 
-    @Column(value = "todo_id")
+    @Column(value = "todoId")
     private Long todoId;
 
     @Column(value = "content")
     private String content;
 
     @CreatedDate
-    @Column(value = "created_at")
+    @Column(value = "createdAt")
     private LocalDateTime createdAt;
 
     @LastModifiedDate
-    @Column(value = "updated_at")
+    @Column(value = "updatedAt")
     private LocalDateTime updatedAt;
 
 }
