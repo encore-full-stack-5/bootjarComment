@@ -2,7 +2,6 @@ package com.example.bootjar_comment.controller;
 
 import com.example.bootjar_comment.command.CommentCommand;
 import com.example.bootjar_comment.domain.Comment;
-import com.example.bootjar_comment.domain.User;
 import com.example.bootjar_comment.dto.CreateCommentDto;
 import com.example.bootjar_comment.dto.UpdateCommentDto;
 import com.example.bootjar_comment.global.CreateCommandHandler;

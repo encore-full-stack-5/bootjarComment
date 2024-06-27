@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import javax.crypto.SecretKey;
 
 @Component
-@Service
 public class JwtUtils {
     private final SecretKey secretKey;
 
