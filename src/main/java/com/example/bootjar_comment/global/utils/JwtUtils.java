@@ -6,14 +6,16 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
 
 @Component
-@Service
 public class JwtUtils {
     private final SecretKey secretKey;
+
+    public JwtUtils(@Value("${token.secret}") String secret) {
+        this.secretKey = Keys.hmacShaKeyFor(secret.getBytes());
+    }
 
     public User parseToken(String token) {
         Claims payload = (Claims) Jwts.parser()
@@ -27,9 +29,5 @@ public class JwtUtils {
         String userImage = payload.get("image", String.class);
 
         return new User(userId, userNickname, userImage);
-    }
-
-    public JwtUtils(@Value("${token.secret}") String secret) {
-        this.secretKey = Keys.hmacShaKeyFor(secret.getBytes());
     }
 }
