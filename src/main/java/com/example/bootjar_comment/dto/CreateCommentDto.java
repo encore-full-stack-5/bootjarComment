@@ -17,7 +17,7 @@ public class CreateCommentDto {
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
 
-    public Comment toEntity(Long todoId) {
+    public Comment toEntity(Long todoId, Long userId) {
         return Comment.builder()
                 .todoId(todoId)
                 .userId(userId)

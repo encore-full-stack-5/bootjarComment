@@ -21,7 +21,7 @@ public class CommentDto {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public static CommentDto from(Comment comment, User user) {
+    public static CommentDto toEntity(Comment comment, User user) {
         return CommentDto.builder()
                 .id(comment.getId())
                 .todoId(comment.getTodoId())
