@@ -11,8 +11,6 @@ import com.example.bootjar_comment.global.QueryHandler;
 import com.example.bootjar_comment.global.UpdateCommandHandler;
 import com.example.bootjar_comment.global.utils.JwtUtils;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
