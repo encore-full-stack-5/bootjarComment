@@ -4,8 +4,8 @@ spring:
 
   r2dbc:
     url: r2dbc:mysql://bootjar-comment-mysql-comment:3306/bootjar_comment
-    username: {username}
-    password: {password}
+    username: ${username}
+    password: ${password}
 
   liquibase:
     enabled: true
@@ -17,4 +17,4 @@ logging:
     org.springframework.r2dbc.core: debug
 
 token:
-  secret: {secret}
+  secret: ${secret}
