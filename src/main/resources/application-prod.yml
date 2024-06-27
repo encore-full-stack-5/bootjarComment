@@ -18,4 +18,3 @@ logging:
 
 token:
   secret: ${secret}
-  expiration: ${exp}

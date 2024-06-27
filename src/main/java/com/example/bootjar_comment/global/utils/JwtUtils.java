@@ -11,14 +11,11 @@ import javax.crypto.SecretKey;
 
 @Component
 public class JwtUtils {
-    private final Long expiration;
     private final SecretKey secretKey;
 
     public JwtUtils(
-            @Value("${token.secret}") String secret,
-            @Value("${token.expiration}") Long expiration
+            @Value("${token.secret}") String secret
     ) {
-        this.expiration = expiration;
         this.secretKey = Keys.hmacShaKeyFor(secret.getBytes());
     }
 
