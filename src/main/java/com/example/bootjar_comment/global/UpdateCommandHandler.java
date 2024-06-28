@@ -2,6 +2,7 @@ package com.example.bootjar_comment.global;
 
 
 import com.example.bootjar_comment.dto.UpdateCommentDto;
+import com.example.bootjar_comment.dto.UserDto;
 import com.example.bootjar_comment.service.CommentCommandService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -16,4 +17,8 @@ public class UpdateCommandHandler {
         return commentCommandService.updateComment(commentId, content);
     }
 
+    // user-update
+    public Mono<Void> processUserUpdate(UserDto userDto) {
+        return commentCommandService.processUserUpdate(userDto);
+    }
 }
