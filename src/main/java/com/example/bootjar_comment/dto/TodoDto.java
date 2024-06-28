@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TodoDto {
-    private Long id;
+    private Long todoId;
 }

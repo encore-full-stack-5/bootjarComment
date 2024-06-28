@@ -41,11 +41,11 @@ public class CommentCommandServiceImpl implements CommentCommandService {
 
     // user-insert
     public Mono<Void> processUserSignup(UserDto userDto) {
-        return commandRepository.createByUserId(userDto.getId(), userDto.getNickname(), userDto.getImage());
+        return commandRepository.createByUserId(userDto.getUserId(), userDto.getNickname(), userDto.getImage());
     }
     // user-update
     public Mono<Void> processUserUpdate(UserDto userDto) {
-        return commandRepository.updateByUserId(userDto.getId(), userDto.getNickname(), userDto.getImage());
+        return commandRepository.updateByUserId(userDto.getUserId(), userDto.getNickname(), userDto.getImage());
     }
     // user-delete
     public Mono<Void> processUserDelete(Long userId) {
