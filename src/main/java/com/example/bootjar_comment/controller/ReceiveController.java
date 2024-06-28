@@ -25,7 +25,7 @@ public class ReceiveController {
     }
 
     // user-update
-    @PutMapping("/user-update ")
+    @PutMapping("/user-update")
     public Mono<Void> userUpdate(@RequestBody UserDto userDto) {
         return updateCommandHandler.processUserUpdate(userDto).then();
     }
