@@ -6,13 +6,13 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
 
 @Component
 public class JwtUtils {
     private final SecretKey secretKey;
+    private final Long expiration;
 
     public User parseToken(String token) {
         Claims payload = (Claims) Jwts.parser()
@@ -28,7 +28,11 @@ public class JwtUtils {
         return new User(userId, userNickname, userImage);
     }
 
-    public JwtUtils(@Value("${token.secret}") String secret) {
+    public JwtUtils(
+            @Value("${token.secret}") String secret,
+            @Value("${token.expiration}") Long expiration
+    ) {
+        this.expiration = expiration;
         this.secretKey = Keys.hmacShaKeyFor(secret.getBytes());
     }
 }
