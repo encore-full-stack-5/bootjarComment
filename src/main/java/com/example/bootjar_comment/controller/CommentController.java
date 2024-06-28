@@ -51,16 +51,14 @@ public class CommentController {
     @PutMapping("/{todoId}/comments/{commentId}")
     public Mono<Void> updateComment(
             @PathVariable Long commentId,
-            @RequestBody UpdateCommentDto comment,
-            @RequestHeader("Authorization") String token
+            @RequestBody UpdateCommentDto comment
     ) {
         return updateCommandHandler.updateHandle(commentId, comment.getContent());
     }
 
     @DeleteMapping("/{todoId}/comments/{commentId}")
     public Mono<Void> deleteComment(
-            @PathVariable Long commentId,
-            @RequestHeader("Authorization") String token
+            @PathVariable Long commentId
     ) {
         return deleteCommandHandler.deleteHandle(commentId);
     }
