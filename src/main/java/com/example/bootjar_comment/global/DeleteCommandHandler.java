@@ -15,4 +15,12 @@ public class DeleteCommandHandler {
         return commentCommandService.deleteComment(commentId);
     }
 
+    // user-delete
+    public Mono<Void> processUserDelete(Long userId) {
+        return commentCommandService.processUserDelete(userId);
+    }
+    // todo-delete
+    public Mono<Void> processTodoDelete(Long todoId) {
+        return commentCommandService.processTodoDelete(todoId);
+    }
 }
