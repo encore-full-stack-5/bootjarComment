@@ -12,12 +12,7 @@ import javax.crypto.SecretKey;
 @Component
 public class JwtUtils {
     private final SecretKey secretKey;
-
-    public JwtUtils(
-            @Value("${token.secret}") String secret
-    ) {
-        this.secretKey = Keys.hmacShaKeyFor(secret.getBytes());
-    }
+    private final Long expiration;
 
     public User parseToken(String token) {
         Claims payload = (Claims) Jwts.parser()
@@ -31,5 +26,13 @@ public class JwtUtils {
         String userImage = payload.get("image", String.class);
 
         return new User(userId, userNickname, userImage);
+    }
+
+    public JwtUtils(
+            @Value("${token.secret}") String secret,
+            @Value("${token.expiration}") Long expiration
+    ) {
+        this.expiration = expiration;
+        this.secretKey = Keys.hmacShaKeyFor(secret.getBytes());
     }
 }
