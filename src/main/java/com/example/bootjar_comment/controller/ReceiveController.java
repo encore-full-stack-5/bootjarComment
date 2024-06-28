@@ -9,10 +9,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
-@org.springframework.web.bind.annotation.RestController
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/todos/comments")
-public class RestController {
+public class ReceiveController {
 
     private final CreateCommandHandler createCommandHandler;
     private final UpdateCommandHandler updateCommandHandler;
