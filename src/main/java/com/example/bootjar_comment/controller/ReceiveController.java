@@ -39,7 +39,7 @@ public class ReceiveController {
     // todo-insert
     @PostMapping("/todo-add")
     public Mono<Void> todoInsert(@RequestBody TodoDto todoDto) {
-        return createCommandHandler.processTodoInsert(todoDto.getId());
+        return createCommandHandler.processTodoInsert(todoDto.getTodoId());
     }
 
     // todo-delete
