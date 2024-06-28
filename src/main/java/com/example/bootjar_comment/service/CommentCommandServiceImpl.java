@@ -2,6 +2,7 @@ package com.example.bootjar_comment.service;
 
 import com.example.bootjar_comment.domain.Comment;
 import com.example.bootjar_comment.dto.CreateCommentDto;
+import com.example.bootjar_comment.dto.UserDto;
 import com.example.bootjar_comment.repository.CommandRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -36,5 +37,26 @@ public class CommentCommandServiceImpl implements CommentCommandService {
 
     public Mono<Void> deleteComment(Long commentId) {
         return commandRepository.deleteById(commentId);
+    }
+
+    // user-insert
+    public Mono<Void> processUserSignup(UserDto userDto) {
+        return commandRepository.createByUserId(userDto.getId(), userDto.getNickname(), userDto.getImage());
+    }
+    // user-update
+    public Mono<Void> processUserUpdate(UserDto userDto) {
+        return commandRepository.updateByUserId(userDto.getId(), userDto.getNickname(), userDto.getImage());
+    }
+    // user-delete
+    public Mono<Void> processUserDelete(Long userId) {
+        return commandRepository.deleteByUserId(userId);
+    }
+    // todo-insert
+    public Mono<Void> processTodoInsert(Long todoId) {
+        return commandRepository.createByTodoId(todoId);
+    }
+    // todo-delete
+    public Mono<Void> processTodoDelete(Long todoId) {
+        return commandRepository.deleteByTodoId(todoId);
     }
 }
