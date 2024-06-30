@@ -9,7 +9,7 @@ public class WebConfig implements WebFluxConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://34.121.86.244/*")
-                .allowedMethods("GET", "POST", "PUT", "DELETE");
+                .allowedOrigins("http://34.121.86.244")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
     }
 }
